@@ -4,7 +4,7 @@
   "description": "vac",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
