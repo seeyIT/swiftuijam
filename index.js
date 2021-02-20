@@ -6,8 +6,8 @@ const csv = require('csv-parser')
 const app = express();
 const port = process.env.PORT || 3000
 
-// const MongoClient = require('mongodb').MongoClient;
-// const uri = "mongodb+srv://swiftuijamlogin:PublicPassowrd@cluster0.a5xor.mongodb.net/swiftuijam?retryWrites=true&w=majority";
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://swiftuijamlogin:PublicPassowrd@cluster0.a5xor.mongodb.net/swiftuijam?retryWrites=true&w=majority";
 // const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.get('/', function(req, res) {
@@ -16,6 +16,30 @@ app.get('/', function(req, res) {
 
 app.post('/', function(req, res) {
   res.send('Hello World!');
+});
+
+
+app.get('/slots/:hospital', function(req, res) {
+	const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+	console.log("Hospital: " + req.params.hospital);
+	client.connect(err => {
+		const db = client.db("swiftuijam");
+		const collection = db.collection("hospital_slots");
+		const data = collection.find({"hospital_name":"Hospital1"}).toArray(function(err, result) {
+	   		if (err) throw err;
+	    	console.log(result);
+	    	client.close();
+	    	res.json(result);
+		});
+
+
+	});
+});
+
+
+app.post('/test', function(req, res) {
+	console.log(eq.params.version);
+    res.send(req.params.version);
 });
 
 
