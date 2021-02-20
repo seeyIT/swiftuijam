@@ -119,6 +119,7 @@ app.get('/bookAppointment/:userId/:hospitalName/:timeSlot', function(req, res) {
 	   		if (err) throw err;
 	    	console.log(result);
 
+
 	    	const slot = result[0]["slots"][timeSlot];
 	    	console.log("slot: " + slot);
 	    	if (slot !== "free") {
