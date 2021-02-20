@@ -38,7 +38,7 @@ app.get('/slots/:hospital', function(req, res) {
 
 
 app.post('/test', function(req, res) {
-	console.log(eq.params.version);
+	console.log(req.params.version);
     res.send(req.params.version);
 });
 
