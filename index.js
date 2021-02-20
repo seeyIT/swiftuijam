@@ -56,7 +56,7 @@ app.get('/appointments/:id', function(req, res) {
 	});
 });
 
-app.post('/bookAppointent', function(req, res) {
+app.post('/bookAppointment', function(req, res) {
 	const userId = req.params.userId;
 	const hospitalName = req.params.hospitalName;
 	const timeSlot = req.params.timeSlot;
@@ -103,7 +103,7 @@ app.post('/bookAppointent', function(req, res) {
 
 });
 
-app.get('/bookAppointent/:userId/:hospitalName/:timeSlot', function(req, res) {
+app.get('/bookAppointment/:userId/:hospitalName/:timeSlot', function(req, res) {
 	const userId = req.params.userId;
 	const hospitalName = req.params.hospitalName;
 	const timeSlot = req.params.timeSlot;
