@@ -32,7 +32,7 @@ app.get('/slots/:hospitalName', function(req, res) {
 	client.connect(err => {
 		const db = client.db("swiftuijam");
 		const collection = db.collection("hospital_slots");
-		const data = collection.find({"hospital_name":"Hospital1"}).toArray(function(err, result) {
+		const data = collection.find({"hospital_name":req.params.hospitalName}).toArray(function(err, result) {
 	   		if (err) throw err;
 	    	console.log(result);
 	    	client.close();
@@ -97,7 +97,7 @@ app.post('/bookAppointment', function(req, res) {
 	    	const appointment = {
 	    		"uuid": newUuid,
 	    		"user_id": userId,
-	    		"hospita_name": hospitalName,
+	    		"hospital_name": hospitalName,
 	    		"time_slot": timeSlot
 	    	}
 	    	const slots = result[0]["slots"];
@@ -112,6 +112,37 @@ app.post('/bookAppointment', function(req, res) {
 	    		});
 		  	});	
 		});
+	});
+});
+
+// Endpoint creates new hospital
+app.post('/addHospital', function(req, res) {
+	if (req.params.hospitalName == null) {
+		res.status(400).json({"error":"hospital name is missing"});
+		return;
+	}
+	
+	const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+	client.connect(err => {
+		const db = client.db("swiftuijam");
+		const collection = db.collection("hospital_slots");
+		const data = {
+			"hospital_name": req.params.hospitalName,
+			"slots": {
+				"900": "free",
+	    		"930": "free",
+	    		"1000": "free",
+	    		"1030": "free",
+	    		"1100": "free",
+	    		"1130": "free",
+	    		"1200": "free"
+			}
+		}
+		collection.insertOne(data, function(err, result) {
+			if (err) throw err;
+			res.status(200).json({"status":"ok"});
+		})
 	});
 });
 
