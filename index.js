@@ -90,13 +90,23 @@ app.post('/bookAppointment', function(req, res) {
 	    	var slots = result[0]["slots"];
 	    	slots[timeSlot] = newUuid;
 	    	console.table(slots);
-	    	collection.updateOne({"hospital_name":hospitalName}, {$set: { slots }});
+	    	collection.updateOne({"hospital_name":hospitalName}, {$set: { slots }}, function(err1, res1) {
+			    if (err1) throw err1;
+			    console.log("1 document updated");
 
-	    	const appointmentCollection = db.collection("appointment");
-	    	appointmentCollection.insertOne(appointment);
+			    const appointmentCollection = db.collection("appointment");
+	    		appointmentCollection.insertOne(appointment, function(err2, res2) {
+	    			console.log("res 2: " + res2);
+	    			console.log("err2: " + err2);
+
+			    	res.status(200).json({"status":"ok","uuid":newUuid});
+
+	    		});
+		  	});
+
+	    	
 	    	
 
-	    	res.status(200).json({"status":"ok","uuid":newUuid});
 	    		
 	});
 });
@@ -117,7 +127,7 @@ app.get('/bookAppointment/:userId/:hospitalName/:timeSlot', function(req, res) {
 		const collection = db.collection("hospital_slots");
 		const data = collection.find({"hospital_name":hospitalName}).toArray(function(err, result) {
 	   		if (err) throw err;
-	    	console.log(result);
+	    	console.log("result: " + result);
 
 
 	    	const slot = result[0]["slots"][timeSlot];
