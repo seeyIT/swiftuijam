@@ -15,6 +15,7 @@ app.post('/', function(req, res) {
 });
 
 app.get('/countrydata', function(req, res) {
+	const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 	client.connect(err => {
 		const db = client.db("swiftuijam");
 		const collection = db.collection("country_data");
