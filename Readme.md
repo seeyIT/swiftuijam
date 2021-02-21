@@ -46,7 +46,8 @@ Params needed:
 8. /allData/:countryName [GET]  
 Endpoint returns the all statistics for some country selected in request parameters  
 
-Params needed: * countryName: String
+Params needed: 
+* countryName: String
 
 
 # Database schema:
