@@ -39,12 +39,12 @@ Util endpoint to clear database records
 **Part related to fetch data related to numbers of vaccinations in different countries**
 
 7. /newestData/:countryName [GET]  
-Endpoint returns the newest statistics for the country selected in request parameters  
+Endpoint returns the newest statistics for the country selected in request parameters
 Params needed:
 * countryName: String
 
 8. /allData/:countryName [GET]  
-Endpoint returns the all statistics for some country selected in request parameters  
+Endpoint returns the all statistics for some country selected in request parameters
 Params needed:
 * countryName: String
 
