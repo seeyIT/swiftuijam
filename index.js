@@ -22,7 +22,7 @@ app.get('/', function(req, res) {
 
 // Endpoint returns all slots for needed hospital
 // Params:
-// - hospitalName: Stirng
+// - hospitalName: String
 app.get('/slots/:hospitalName', function(req, res) {
 	if (req.params.hospitalName == null) {
 		res.status(400).json({"message":"hispital name is missing"});
@@ -45,7 +45,7 @@ app.get('/slots/:hospitalName', function(req, res) {
 
 // Endpoint returns appointments for user ID
 // Params:
-// - userId: Stirng
+// - userId: String
 app.get('/appointments/:userId', function(req, res) {
 	if (req.params.userId == null) {
 		res.status(400).json({"message":"user id is missing"});
@@ -121,7 +121,7 @@ app.post('/addHospital', function(req, res) {
 		res.status(400).json({"error":"hospital name is missing"});
 		return;
 	}
-	
+
 	const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 	client.connect(err => {
@@ -194,7 +194,7 @@ app.get('/clearAppointmentsData', function(req, res) {
 
 //Endpoint returns the newest statistics for the country selected in request parameters
 // Params needed:
-// - countryName: Stirng
+// - countryName: String
 app.get('/newestData/:countryName', function(req, res) {
 	if (req.params.countryName == null) {
 		res.status(400).json({"message":"user id is missing"});
@@ -215,7 +215,7 @@ app.get('/newestData/:countryName', function(req, res) {
 
 //Endpoint returns the all statistics for some country selected in request parameters
 // Params needed:
-// - countryName: Stirng
+// - countryName: String
 app.get('/allData/:countryName', function(req, res) {
 	if (req.params.countryName == null) {
 		res.status(400).json({"message":"countryName name is missing"});
