@@ -2,7 +2,7 @@
 
 **API address: [http://swiftuijam.herokuapp.com/](http://swiftuijam.herokuapp.com)**
 
-#Endpoints:
+## Endpoints:
 
 
 **Part related to handle registration to be vaccinated**
