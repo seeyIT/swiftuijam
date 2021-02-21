@@ -1,5 +1,7 @@
 # Backend part of the main application [BookMyVaccine](https://github.com/aviralx10/BookMyVaccine) prepred for [SwiftUIJam](https://www.swiftuijam.com/)
 
+**API address: [http://swiftuijam.herokuapp.com/](http://swiftuijam.herokuapp.com)**
+
 #Endpoints:
 
 
@@ -39,7 +41,7 @@ Util endpoint to clear database records
 **Part related to fetch data related to numbers of vaccinations in different countries**
 
 7. /newestData/:countryName [GET]  
-Endpoint returns the newest statistics for the country selected in request parameters
+Endpoint returns the newest statistics for the country selected in request parameters  
 Params needed:
 * countryName: String
 
@@ -51,15 +53,15 @@ Params needed:
 
 # Database schema:
 
-**hosital_slots**
+**hosital_slots** table
 * hospital_name [String]
 The name of hospital  
 * slots [Dictionary<String, String>]  
 List of the possible slots. Each slot has two values *free* or *value of uuid*  
 If it's free then it's possibe to book appointment for that time otherwise it's uuid of appoitment.  
-
-**appointment**
-* uuid [String]
+ 
+**appointment** table
+* uuid [String]  
 This uuid is the same as in hospital_slots table.  
 * user_id [String]
 * hospital_name [String]
