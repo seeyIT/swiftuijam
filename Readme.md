@@ -1,6 +1,6 @@
 # Backend part of the main application [BookMyVaccine](https://github.com/aviralx10/BookMyVaccine) prepred for [SwiftUIJam](https://www.swiftuijam.com/)
 
-**API address: [http://swiftuijam.herokuapp.com/](http://swiftuijam.herokuapp.com)**
+**API address: [https://swiftuijam.herokuapp.com/](https://swiftuijam.herokuapp.com)**
 
 ## Endpoints:
 
