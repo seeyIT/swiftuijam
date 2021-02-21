@@ -40,12 +40,12 @@ Util endpoint to clear database records
 
 7. /newestData/:countryName [GET]  
 Endpoint returns the newest statistics for the country selected in request parameters  
-Params needed:  
+Params needed:
 * countryName: String
 
-8. //allData/:countryName [GET]  
+8. /allData/:countryName [GET]  
 Endpoint returns the all statistics for some country selected in request parameters  
-Params needed:  
+Params needed:
 * countryName: String
 
 
