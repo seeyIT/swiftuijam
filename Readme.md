@@ -54,7 +54,7 @@ Params needed:
 # Database schema:
 
 **hosital_slots** table
-* hospital_name [String]
+* hospital_name [String]  
 The name of hospital  
 * slots [Dictionary<String, String>]  
 List of the possible slots. Each slot has two values *free* or *value of uuid*  
