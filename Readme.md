@@ -51,7 +51,7 @@ Params needed:
 
 # Database schema:
 
-** hosital_slots **
+**hosital_slots**
 * hospital_name [String]
 The name of hospital
 * slots [Dictionary<String, String>]
