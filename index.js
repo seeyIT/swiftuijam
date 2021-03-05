@@ -4,6 +4,8 @@ const fs = require('fs');
 const csv = require('csv-parser')
 const uuid = require('uuid');
 
+const app = express();
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", '*');
     res.header("Access-Control-Allow-Credentials", true);
@@ -11,6 +13,7 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
     next();
 });
+
 const port = process.env.PORT || 3000
 
 const MongoClient = require('mongodb').MongoClient;
